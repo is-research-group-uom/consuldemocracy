@@ -23,6 +23,45 @@ Citizen Participation and Open Government Application
 
 This is the opensource code repository of the eParticipation website CONSUL DEMOCRACY, originally developed for the Madrid City government eParticipation website, and currently maintained by the open source software community in collaboration with the CONSUL DEMOCRACY Foundation.
 
+## Docker Setup Instructions
+
+To set up the application using Docker, follow these steps:
+
+1. Install Docker and Docker Compose on your machine.
+2. Clone the repository:
+
+```bash
+git clone https://github.com/consuldemocracy/consuldemocracy.git
+cd consuldemocracy
+```
+
+3. Build and start the containers:
+
+```bash
+docker-compose up --build
+```
+
+4. Set up the database:
+
+```bash
+docker-compose run web bin/rake db:setup
+docker-compose run web bin/rake db:dev_seed
+```
+
+5. Run the application:
+
+```bash
+docker-compose up
+```
+
+6. Access the application at `http://localhost:3000`.
+
+You can run the tests with:
+
+```bash
+docker-compose run web bin/rspec
+```
+
 ## Documentation
 
 Check the [ongoing documentation](https://docs.consuldemocracy.org/index) to learn more about how to start your own CONSUL DEMOCRACY fork, install it, customize it and learn to use it as an administrator/maintainer.
